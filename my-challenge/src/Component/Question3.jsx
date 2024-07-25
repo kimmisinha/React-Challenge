@@ -8,7 +8,7 @@ import skim from "../../src/assest/skim.jpeg";
 import whippedCream from "../../src/assest/whippedCream.jpeg";
 import white from "../../src/assest/white.jpeg";
 import whole from "../../src/assest/whole.jpeg";
-import './Question3.css';  
+import '../Css/Question3.css';  
 
 function Question3() {
   const [mix, setMix] = useState("regular");

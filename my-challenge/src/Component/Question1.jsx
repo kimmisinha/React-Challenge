@@ -27,3 +27,12 @@ function Question1() {
 }
 
 export default Question1;
+
+/*
+Puzzle #1: Elf Name Sorter 🎄
+Implement a component that displays a list of Santa's elves, sorted 
+alphabetically by their names. Each elf's name should be displayed and when 
+the order button is clicked, the list should be sorted in the opposite order 
+(i.e. Z-A instead of A-Z).
+*/
+
