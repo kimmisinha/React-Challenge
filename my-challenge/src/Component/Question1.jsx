@@ -1,17 +1,16 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import React from "react";
 
 function Question1() {
   const [elves, setElves] = useState(['Buddy', 'Dobby', 'Winky', 'Bing', 'Bernard']);
 
-  //  function sortAscending(){
-
-  //   setElves([...elves].sort());
-  //  }
-
+  
+  useEffect(()=>{
+    setElves((prev)=>{
+      return[...prev.sort()]
+    })
+  },[])
    function sortDescending(){
-
-    // setElves([...elves].sort().reverse());
     setElves((prev)=>{
       return [...prev.sort().reverse()]
     })
@@ -20,7 +19,6 @@ function Question1() {
 
   return (
     <div>
-      {/* <button onClick={sortAscending}>Sort A-Z</button> */}
       <button onClick={sortDescending}>Sort Z-A</button>
       <ul>
         {elves && elves.map((ele, index) => (
