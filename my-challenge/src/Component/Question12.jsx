@@ -1,9 +1,9 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 function Question12() {
-  return (
-    <div>Question12</div>
-  )
+  
 }
 
 export default Question12
+
+
