@@ -3,7 +3,7 @@ import './App.css';
 import NavBar from "./Component/NavBar";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Question1 from "./Component/Question1";
-import Question2 from "./Component/Question2";
+import Question2 from "./Component/PianoApp";
 import Question3 from "./Component/Question3";
 import Question4 from "./Component/Question4";
 import Question5 from "./Component/Question5";
@@ -22,6 +22,7 @@ import Question17 from "./Component/Question17";
 import Question18 from "./Component/Question18";
 import Question19 from "./Component/Question19";
 import Question20 from "./Component/Question20";
+import PianoApp from "./Component/PianoApp"; // Import your virtual piano component
 
 function App() {
   return (
@@ -49,6 +50,8 @@ function App() {
           <Route path="/question18" element={<Question18 />} />
           <Route path="/question19" element={<Question19 />} />
           <Route path="/question20" element={<Question20 />} />
+          <Route path="/piano" element={<PianoApp />} /> {/* Add a route for the virtual piano */}
+
         </Routes>
       </div>
     </BrowserRouter>
