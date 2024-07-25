@@ -15,12 +15,13 @@ function Question6() {
     }
     setPassword(result);
   }
-
+// console.log(password)
   function handleGeneratePassword(){
     generatePassword(passwordLength)
   }
 
   function handlePasswordLengthChange(e){
+
     setPasswordLength(Number(e.target.value))
   }
   return (
