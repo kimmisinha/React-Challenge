@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
-const playSound = (note) => {
-  // const audio = new Audio(`${process.env.PUBLIC_URL}/sounds/${note}.mp3`);
-  const audio = new Audio(`${process.env.PUBLIC_URL}/sounds/${note}.mp3`);
+// import audio from "../../public/sounds/audio.mp3"
+// const playSound = (audio) => {
+//   const audio = new Audio(`${process.env.PUBLIC_URL}/sounds/${note}.mp3`);
 
-  audio.play().catch((error) => {
-    console.error(`Error playing sound for ${note}:`, error);
-  });
-};
+//   audio.play().catch((error) => {
+//     console.error(`Error playing sound for ${note}:`, error);
+//   });
+// };
 
 
 // PianoKey Component
@@ -41,7 +41,7 @@ const App = () => {
   const [pressedNotes, setPressedNotes] = useState([]);
 
   const onPressKey = note => {
-    playSound(note); 
+    // playSound(audio); 
     setPressedNotes(prevPressedNotes =>
       prevPressedNotes.includes(note)
         ? prevPressedNotes.filter(n => n !== note)
