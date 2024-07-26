@@ -1,28 +1,35 @@
-import React, { useState } from 'react'
+import React, { useState } from "react";
+import "../Css/Question12.css";
 
 function Question12() {
-    const [pixels, setPixels] = useState(Array(256).fill())
-  
-    const handleClick = (index) => {
-    }
-     return (
-       <div className="pixel-grid" style={{display:'grid',gridTemplateColumns:'repeat(16,20px)'}}
-         >
-         {pixels.map((color, index) => (
-           <div
-             key={index}
-             className="pixel"
-             style={{ backgroundColor: color }}
-             
-             onClick={() => handleClick(index)}
-           ></div>
-         ))}
-       </div>
-     );
+  const [pixels, setPixels] = useState(Array(256).fill());
+  console.log(pixels);
+
+  const handleClick = (index) => {
+    console.log(index)
+    setPixels((prevPixels) => {
+      console.log("prevPixels",prevPixels)
+      const copyPixels = [...prevPixels];
+      console.log("copyPixels",copyPixels)
+      copyPixels[index] = copyPixels[index] == "black" ? null : "black";
+      return copyPixels;
+    });
+  };
+  return (
+    <div className="pixel-grid">
+      {pixels.map((color, index) => (
+        <div
+          key={index}
+          className="pixel"
+          style={{ backgroundColor: color || "white" }}
+          onClick={() => handleClick(index)}
+        ></div>
+      ))}
+    </div>
+  );
 }
 
-export default Question12
-
+export default Question12;
 
 /*
 Puzzle #12: Pixel Artist 🖼️
