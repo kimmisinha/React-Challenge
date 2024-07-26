@@ -1,25 +1,50 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 function Question5() {
-    // TODO: Add state variables for password and confirm password
-  // TODO: Add event handlers for updating password and confirm password state
+    const [password,setPassword]=useState('');
+    const [confirmPassword,setConfirmPassword]=useState('')
+    const [message,setMessage]=useState('')
 
-  function checkPasswordsMatch() {
-    // TODO: Compare password and confirm password state and return true if they match, false if they don't
-  }
-
-  function checkPasswordStrength() {
-    // TODO: Use a regular expression to check if password includes at least one special character
-    // TODO: Check if password is at least 8 characters long
-    // TODO: Return true if password has a special character and is at least 8 characters long, false otherwise
-  }
-
+    const isPasswordStrong=(pwd)=>{
+      const hasSpecialChar = /[!@#\$%\^\&*\)\(+=._-]/.test(pwd);
+      const hasMinLength=pwd.length>=9;
+       return hasMinLength && hasSpecialChar
+    }
+ 
+    const handleSubmit=(e)=>{
+      e.preventDefault()
+      if(password!==confirmPassword){
+        setMessage("Passwords do not match")
+      }
+      else if (!isPasswordStrong(password)){
+        setMessage('Password must be at least 8 characters long and include at least one special character.');
+      }
+      else{
+        setMessage('Success! Your password is secure.')
+      }
+    }
   return (
-    <form>
-      {/* TODO: Add password input field */}
-      {/* TODO: Add confirm password input field */}
-      {/* TODO: Add message to display whether passwords match */}
-      {/* TODO: Add message to display whether password is strong */}
+    <form onSubmit={handleSubmit}>
+      <div>
+        <label>Password:</label>
+        <input type='password' value={password} 
+                  placeholder="Enter password"
+
+        onChange={(e)=>setPassword(e.target.value) }></input>
+      </div>
+      <div>
+      <label>Confirm Password:</label>
+    <input type='password' value={confirmPassword}
+    onChange={(e)=>setConfirmPassword(e.target.value)}
+    placeholder="Confirm password"
+
+    />
+    
+      </div>
+      <div>
+        <button type='submit'>submit</button>
+        <p>{message}</p>
+      </div>
     </form>
   );
 }
