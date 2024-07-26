@@ -1,17 +1,46 @@
-import React from 'react'
+import React, { useEffect, useState } from "react";
+import '../Css/Question16.css';  
 
 function Question16() {
+  const [pokemon, setPokemon] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [visibleCount, setVisibleCount] = useState(8);
+
+  useEffect(() => {
+    fetch("https://pokeapi.co/api/v2/pokemon?limit=500")
+      .then((response) => response.json())
+      .then((data) => {
+        setPokemon(data.results);
+        setLoading(false);
+        console.log(data.results);
+      })
+      .catch((err) => {
+        console.error("Error fetching data:", err);
+        setLoading(false);
+      });
+  }, []);
+
+  const showMorePokemon = () => {
+    setVisibleCount((prevCount) => prevCount + 8);
+  };
+
+  if (loading) {
+    return <div className="spinner">Loading...</div>;
+  }
+
   return (
-    <div>Question16</div>
-  )
+    <div>
+      <h1>Pokémon</h1>
+      <ul>
+        {pokemon.slice(0, visibleCount).map((pokemon, index) => (
+          <li key={index}>{pokemon.name}</li>
+        ))}
+      </ul>
+      {visibleCount < pokemon.length && (
+        <button onClick={showMorePokemon}>Show More Pokémon</button>
+      )}
+    </div>
+  );
 }
 
-export default Question16
-
-/*
-Puzzle #16: Pokemon 🐱
-Create a React app that displays a list of Pokémon from the Pokémon API. 
-The app should initially display 8 Pokémon and have a "Show More" button that 
-fetches and displays the next 8 Pokémon when clicked. The app should also display a 
-loading spinner while the next batch of Pokémon is being fetched.
-*/
+export default Question16;
