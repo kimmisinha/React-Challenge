@@ -8,8 +8,8 @@ function Question17() {
     setWebsite(e.target.value); 
   }
   function handlesumbit(e) {
-    e.preventDefault(); // Prevents the default form submission behavior
-    setsavewebsite(website); // Correctly set savewebsite to the current website value
+    e.preventDefault(); 
+    setsavewebsite(website); 
   }
 
   return (

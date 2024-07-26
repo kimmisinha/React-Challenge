@@ -1,55 +1,57 @@
-import React, { useState } from 'react'
+import React, { useState } from "react";
 
 function Question5() {
-    const [password,setPassword]=useState('');
-    const [confirmPassword,setConfirmPassword]=useState('')
-    const [message,setMessage]=useState('')
+  const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
+  const [message, setMessage] = useState("");
 
-    const isPasswordStrong=(pwd)=>{
-      const hasSpecialChar = /[!@#\$%\^\&*\)\(+=._-]/.test(pwd);
-      const hasMinLength=pwd.length>=9;
-       return hasMinLength && hasSpecialChar
+  const isPasswordStrong = (pwd) => {
+    const hasSpecialChar = /[!@#\$%\^\&*\)\(+=._-]/.test(pwd);
+    const hasMinLength = pwd.length >= 9;
+    return hasMinLength && hasSpecialChar;
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (password !== confirmPassword) {
+      setMessage("Passwords do not match");
+    } else if (!isPasswordStrong(password)) {
+      setMessage(
+        "Password must be at least 8 characters long and include at least one special character."
+      );
+    } else {
+      setMessage("Success! Your password is secure.");
     }
- 
-    const handleSubmit=(e)=>{
-      e.preventDefault()
-      if(password!==confirmPassword){
-        setMessage("Passwords do not match")
-      }
-      else if (!isPasswordStrong(password)){
-        setMessage('Password must be at least 8 characters long and include at least one special character.');
-      }
-      else{
-        setMessage('Success! Your password is secure.')
-      }
-    }
+  };
   return (
     <form onSubmit={handleSubmit}>
       <div>
         <label>Password:</label>
-        <input type='password' value={password} 
-                  placeholder="Enter password"
-
-        onChange={(e)=>setPassword(e.target.value) }></input>
+        <input
+          type="password"
+          value={password}
+          placeholder="Enter password"
+          onChange={(e) => setPassword(e.target.value)}
+        ></input>
       </div>
       <div>
-      <label>Confirm Password:</label>
-    <input type='password' value={confirmPassword}
-    onChange={(e)=>setConfirmPassword(e.target.value)}
-    placeholder="Confirm password"
-
-    />
-    
+        <label>Confirm Password:</label>
+        <input
+          type="password"
+          value={confirmPassword}
+          onChange={(e) => setConfirmPassword(e.target.value)}
+          placeholder="Confirm password"
+        />
       </div>
       <div>
-        <button type='submit'>submit</button>
+        <button type="submit">submit</button>
         <p>{message}</p>
       </div>
     </form>
   );
 }
 
-export default Question5
+export default Question5;
 
 /*
 Puzzle #5: Secure Password Check 🔑

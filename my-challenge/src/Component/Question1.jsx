@@ -4,7 +4,6 @@ import React from "react";
 function Question1() {
   const [elves, setElves] = useState(['Buddy', 'Dobby', 'Winky', 'Bing', 'Bernard']);
 
-  
   useEffect(()=>{
     setElves((prev)=>{
       return[...prev.sort()]

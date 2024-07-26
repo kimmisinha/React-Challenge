@@ -1,30 +1,43 @@
 import React, { useState } from 'react';
-// import audio from "../../public/sounds/audio.mp3"
-// const playSound = (audio) => {
-//   const audio = new Audio(`${process.env.PUBLIC_URL}/sounds/${note}.mp3`);
+import confetti from "https://cdn.skypack.dev/canvas-confetti"; 
 
-//   audio.play().catch((error) => {
-//     console.error(`Error playing sound for ${note}:`, error);
-//   });
-// };
-
+// Function to play sound
+const playSound = (note) => {
+  const audio = new Audio("../../public/sounds/audio.mp3");
+  
+  audio.play().catch((error) => {
+    console.error(`Error playing sound for ${note}:`, error);
+  });
+};
 
 // PianoKey Component
-const PianoKey = ({ note, isPressed, onPress }) => (
-  <button 
-    className={`piano-key ${isPressed ? 'pressed' : ''}`} 
-    onClick={() => onPress(note)}
-  >
-    {note} {isPressed && '★'}
-  </button>
-);
+const PianoKey = ({ note, isPressed, onPress }) => {
+  // console.log('PianoKey props:', { note, isPressed, onPress });
+
+  return (
+    <button 
+      className={`piano-key ${isPressed ? 'pressed' : ''}`} 
+      onClick={() => {
+        console.log(`Key pressed: ${note}`);
+        onPress(note);
+      }}
+    >
+      {note} {isPressed && '★'}
+    </button>
+  );
+};
+
 
 // Piano Component
 const Piano = ({ pressedNotes, onPressKey }) => {
+
   const notes = ['C', 'D', 'E', 'F', 'G', 'A', 'B'];
+  // console.log('pressedNotes:', pressedNotes); 
+
   return (
     <div className="piano">
       {notes.map(note => (
+   
         <PianoKey 
           key={note} 
           note={note} 
@@ -41,7 +54,8 @@ const App = () => {
   const [pressedNotes, setPressedNotes] = useState([]);
 
   const onPressKey = note => {
-    // playSound(audio); 
+    playSound(note);
+    confetti();
     setPressedNotes(prevPressedNotes =>
       prevPressedNotes.includes(note)
         ? prevPressedNotes.filter(n => n !== note)
@@ -53,13 +67,3 @@ const App = () => {
 };
 
 export default App;
-
-
-/*
-Puzzle #2: Virtual Piano 🎹
-Create an interactive virtual piano with seven labeled button 
-keys (C, D, E, F, G, A, B). When the user clicks on a button change its
- inner JSX code to have a star symbol beside the letter name. As a bonus challenge,
-  change the CSS to make the keys look like a piano.
- You can also try to add sound to the keys.
- */
