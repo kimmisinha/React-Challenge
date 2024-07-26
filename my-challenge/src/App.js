@@ -22,7 +22,9 @@ import Question17 from "./Component/Question17";
 import Question18 from "./Component/Question18";
 import Question19 from "./Component/Question19";
 import Question20 from "./Component/Question20";
-import PianoApp from "./Component/PianoApp"; // Import your virtual piano component
+import PianoApp from "./Component/PianoApp";
+import ApiFetchone from "./Component/ApiFetchone";
+import ApiFetchtwo from './Component/ApiFetchtwo';
 
 function App() {
   return (
@@ -50,8 +52,9 @@ function App() {
           <Route path="/question18" element={<Question18 />} />
           <Route path="/question19" element={<Question19 />} />
           <Route path="/question20" element={<Question20 />} />
-          <Route path="/piano" element={<PianoApp />} /> {/* Add a route for the virtual piano */}
-
+          <Route path="/piano" element={<PianoApp />} /> 
+          <Route path="/apifetchone" element={<ApiFetchone />} />
+          <Route path="/apifetchtwo" element={<ApiFetchtwo />} />
         </Routes>
       </div>
     </BrowserRouter>

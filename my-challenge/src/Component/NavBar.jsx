@@ -66,9 +66,16 @@ const NavBar = () => {
         <li>
           <Link to="/question20">Question 20</Link>
         </li>
+        <li>
+          <Link to="/apifetchone">fetch using custom hook</Link>
+        </li>  <li>
+          <Link to="/apifetchtwo">fetch using custom hook</Link>
+        </li>
       </ul>
     </nav>
   );
 };
+
+
 
 export default NavBar;
