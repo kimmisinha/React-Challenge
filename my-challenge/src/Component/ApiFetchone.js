@@ -7,7 +7,7 @@ function ApiFetchone() {
   return (
     <>
     {data &&
-      data.map((item) => {
+      data.slice(0,10).map((item) => {
         return <p key={item.id}>{item.title}</p>;
       })}
   </>

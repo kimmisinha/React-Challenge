@@ -6,7 +6,7 @@ function ApiFetchtwo() {
   return (
     <>
       {data &&
-        data.map((ele) => {
+        data.slice(0,5).map((ele) => {
           return <h2>{ele.email}</h2>;
         })}
     </>
