@@ -1,9 +1,15 @@
 import React from 'react'
 
 function Question10() {
+  const positiveAdjectives = ['Beautiful', 'Joyful', 'Kind', 'Loving', 'Patient', 'Thoughtful', 'Courageous', 'Intelligent', 'Ambitious', 'Creative', 'Confident', 'Enthusiastic'];
+
+const funnyNouns = ['Sausage', 'Pickle', 'Cactus', 'Kitten', 'Zombie', 'Unicorn', 'Yeti', 'Alien', 'Shark', 'Giraffe', 'Elephant', 'Gorilla', 'Panda', 'Sloth', 'Flamingo', 'Chimpanzee', 'Giraffe', 'Hippopotamus', 'Ostrich', 'Crocodile', 'Squirrel', 'Koala', 'Pig', 'Chicken', 'Mouse', 'Cat', 'Dog', 'Squirrel', 'Llama', 'Fox', 'Polar bear'];
   return (
-    <div>Question10</div>
-  )
+<div>
+    <p>hero name goes here</p>
+    {/* TODO: Render the form */}
+    {/* TODO: Use select and option elements to give the user the available options for their birth day and month */}
+  </div>  )
 }
 
 export default Question10
